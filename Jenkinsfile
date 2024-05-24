@@ -21,7 +21,7 @@ stage('Build Docker Image') {
           steps {
         script {
           // Build the image (modified name within 'withRegistry' block)
-           sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} :'
+           dockerImage = docker.build("ambikadutt/flask-repo", "-f ./Dockerfile .")
           }
         }
       }
