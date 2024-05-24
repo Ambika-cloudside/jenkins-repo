@@ -5,7 +5,7 @@ pipeline {
         ARTIFACT_REGISTRY_REGION = 'us-central1'  
         REPOSITORY_NAME = 'ambika-repo'
         APP_NAME = 'helloworld' 
-        IMAGE_NAME = 'us-central1-docker.pkg.dev/cloudside-project/ambika-repo/helloworld:latest'
+        IMAGE_NAME = 'us-central1-docker.pkg.dev/cloudside-project/ambika-repo/helloworld'
         IMAGE_TAG = 'latest'
         
         }
@@ -21,7 +21,7 @@ stage('Build Docker Image') {
           steps {
         script {
           // Build the image (modified name within 'withRegistry' block)
-           docker.build("${APP_NAME}:${IMAGE_TAG}", "-f ./Dockerfile .")
+           docker.build("${APP_NAME}", "-f ./Dockerfile .")
           }
         }
       }
