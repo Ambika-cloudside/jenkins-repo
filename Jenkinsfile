@@ -29,7 +29,8 @@ stage('Build Docker Image') {
             steps {
                 script {
                     withCredentials([file(credentialsId: "bcf68493-4735-496d-b987-e9e60c5c3ded", variable: 'GCR_CRED')]){
-                              cat "${GCR_CRED}" | docker login -u _json_key_base64 --password-stdin https://"us-central1-docker.pkg.dev
+                             sh 'gcloud auth activate-service-account --key-file=${GCR_CRED}'
+                              sh 'gcloud auth configure-docker us-central1-docker.pkg.dev --quiet'
                                 imageName = dockerImage.name
                                 docker push ${imageName}
                     }
