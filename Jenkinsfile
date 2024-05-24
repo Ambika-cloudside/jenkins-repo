@@ -1,5 +1,11 @@
 pipeline {
   agent any
+   environment {
+        PROJECT_ID = 'cloudside-project'
+        ARTIFACT_REGISTRY_REGION = 'us-central1'  
+        REPOSITORY_NAME = 'ambika-repo'
+        IMAGE_NAME = 'ambikadutt/flask-repo'
+        }
   stages {
     stage('Checkout') {
       steps {
@@ -16,8 +22,16 @@ pipeline {
           }
         }
       }
-    
+    stage('Push Docker Image to Artifact Registry') {
+            steps {
+                script {
+                    docker.withRegistry("https://${ARTIFACT_REGISTRY_REGION}-docker.pkg.dev", "gcr:us:artifact-registry") {
+                        dockerImage.push("latest")
     
         }
       }
+            }
     
+  }
+  }
+}
