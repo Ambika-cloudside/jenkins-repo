@@ -31,6 +31,7 @@ stage('Build Docker Image') {
                     withCredentials([file(credentialsId: "bcf68493-4735-496d-b987-e9e60c5c3ded", variable: 'GCR_CRED')]){
                              sh 'gcloud auth activate-service-account --key-file=${GCR_CRED}'
                               sh 'gcloud auth configure-docker us-central1-docker.pkg.dev/cloudside-project/ambika-repo--quiet'
+                              sh "docker tag ${APP_NAME}:${IMAGE_TAG} ${IMAGE_NAME}"
                               sh 'docker push ${IMAGE_NAME}'  
                     }
           }
