@@ -21,7 +21,7 @@ pipeline {
       steps {
         script {
           // Build the image (modified name within 'withRegistry' block)
-           docker build -t ${IMAGE_NAME}:${IMAGE_TAG}
+           sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG}'
           }
         }
       }
