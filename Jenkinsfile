@@ -5,7 +5,7 @@ pipeline {
         ARTIFACT_REGISTRY_REGION = 'us-central1'  
         REPOSITORY_NAME = 'ambika-repo'
         APP_NAME = 'helloworld' 
-        IMAGE_NAME = 'us-central1-docker.pkg.dev/cloudside-project/ambika-repo/'
+        IMAGE_NAME = 'us-central1-docker.pkg.dev/cloudside-project/ambika-repo/helloworld:latest'
         IMAGE_TAG = 'latest'
         
         }
