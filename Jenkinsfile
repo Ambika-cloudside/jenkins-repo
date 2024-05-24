@@ -17,11 +17,11 @@ pipeline {
                         userRemoteConfigs: [[ url: 'https://github.com/Ambika-cloudside/jenkins-repo.git']])
       }
     }
-    stage('Build Docker Image') {
-      steps {
+stage('Build Docker Image') {
+          steps {
         script {
           // Build the image (modified name within 'withRegistry' block)
-           sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG}'
+           sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} :'
           }
         }
       }
