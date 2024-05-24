@@ -29,7 +29,7 @@ stage('Build Docker Image') {
             steps {
                 script {
                     withCredentials([file(credentialsId: "bcf68493-4735-496d-b987-e9e60c5c3ded", variable: 'GCR_CRED')]){
-                              sh 'cat "${GCR_CRED}" | docker login -u _json_key_base64 --password-stdin https://"us-central1-docker.pkg.dev'
+                              cat "${GCR_CRED}" | docker login -u _json_key_base64 --password-stdin https://"us-central1-docker.pkg.dev
                                 imageName = dockerImage.name
                                 docker push ${imageName}
                     }
