@@ -49,8 +49,8 @@ stage('Build Docker Image') {
                     sh 'gcloud deploy releases create gke-nodeapp-release-$SHORT_SHA \
                            --project=cloudside-academy \
                             --region=us-central1 \
-                            --delivery-pipeline= my-gke-demo-app-1\
-                            --images= us-central1-docker.pkg.dev/cloudside-academy/ambika-repo/helloworld'
+                            --delivery-pipeline=my-gke-demo-app-1\
+                            --images=us-central1-docker.pkg.dev/cloudside-academy/ambika-repo/helloworld'
                   
                   }    
             }
