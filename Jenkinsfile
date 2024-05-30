@@ -45,8 +45,9 @@ stage('Build Docker Image') {
                   withCredentials([file(credentialsId: "e2a82c8f-aba7-4895-95fb-3626513ff6af", variable: 'GCR_CRED')]){
                     sh 'gcloud auth activate-service-account --key-file=${GCR_CRED}'
                       sh 'gcloud config set project cloudside-academy'
+                    sh 'gcloud container clusters get-credentials cluster-ad --zone us-central1-a --project cloudside-academy'
                    sh 'gcloud deploy apply --file=clouddeploy.yaml --region=us-central1 --project=cloudside-academy '
-                    sh 'gcloud deploy releases create gke-nodeapp-release-001 \
+                    sh 'gcloud deploy releases create gke-nodeapp-release-002 \
                            --project=cloudside-academy \
                             --region=us-central1 \
                             --delivery-pipeline=my-gke-demo-app-1\
