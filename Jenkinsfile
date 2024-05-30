@@ -1,4 +1,4 @@
-lopipeline {
+pipeline {
   agent any
    environment {
         PROJECT_ID = 'cloudside-academy'
