@@ -16,6 +16,5 @@ metadata:
   name: qsdev
 description: development cluster
 gke:
-  cluster: projects/PROJECT_ID/locations/us-central1/clusters/quickstart-cluster-qsdev
-
+  cluster: projects/cloudside-academy/locations/us-central1-a/clusters/cluster-ad
 
