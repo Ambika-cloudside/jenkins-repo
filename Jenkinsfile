@@ -42,16 +42,17 @@ stage('Build Docker Image') {
       stage('Gke deploy') {
             steps {
                 script {
-                  sh 'gcloud auth activate-service-account --key-file=${GKE_CREDENTIALS}'
-                    sh 'gcloud config set project ${PROJECT_ID}'
-                 sh gcloud deploy apply --file=clouddeploy.yaml --region=us-central1 --project=cloudside-project --skaffold-file=skaffold.yaml
-                  sh 'gcloud deploy releases create gke-nodeapp-release-$SHORT_SHA \
-                         --project=cloudside-academy \
-                          --region=us-central1 \
-                          --delivery-pipeline= my-gke-demo-app-1\
-                          --images= us-central1-docker.pkg.dev/cloudside-project/ambika-repo/helloworld'
+                  withCredentials([file(credentialsId: "bcf68493-4735-496d-b987-e9e60c5c3ded", variable: 'GCR_CRED')]){
+                    sh 'gcloud auth activate-service-account --key-file=${GCR_CRED}'
+                      sh 'gcloud config set project ${PROJECT_ID}'
+                   sh gcloud deploy apply --file=clouddeploy.yaml --zone=us-central1-a --project=cloudside-project --skaffold-file=skaffold.yaml
+                    sh 'gcloud deploy releases create gke-nodeapp-release-$SHORT_SHA \
+                           --project=cloudside-academy \
+                            --zone=us-central1-a \
+                            --delivery-pipeline= my-gke-demo-app-1\
+                            --images= us-central1-docker.pkg.dev/cloudside-project/ambika-repo/helloworld'
                   
-    
+                  }    
             }
             }
   }
