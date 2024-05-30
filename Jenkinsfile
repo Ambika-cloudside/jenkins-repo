@@ -1,11 +1,11 @@
 pipeline {
   agent any
    environment {
-        PROJECT_ID = 'cloudside-project'
+        PROJECT_ID = 'cloudside-academy'
         ARTIFACT_REGISTRY_REGION = 'us-central1'  
         REPOSITORY_NAME = 'ambika-repo'
         APP_NAME = 'helloworld' 
-        IMAGE_NAME = 'us-central1-docker.pkg.dev/cloudside-project/ambika-repo/helloworld'
+        IMAGE_NAME = 'us-central1-docker.pkg.dev/cloudside-academy/ambika-repo/helloworld'
         IMAGE_TAG = 'latest'
         
         }
@@ -30,7 +30,7 @@ stage('Build Docker Image') {
                 script {
                     withCredentials([file(credentialsId: "f1f2aef4-3297-4de3-a439-83def74f0a40", variable: 'GCR_CRED')]){
                              sh 'gcloud auth activate-service-account --key-file=${GCR_CRED}'
-                              sh 'gcloud auth configure-docker us-central1-docker.pkg.dev/cloudside-project/ambika-repo--quiet'
+                              sh 'gcloud auth configure-docker us-central1-docker.pkg.dev/cloudside-academy/ambika-repo--quiet'
                               sh "docker tag ${APP_NAME}:${IMAGE_TAG} ${IMAGE_NAME}"
                               sh 'docker push ${IMAGE_NAME}'  
                     }
@@ -50,7 +50,7 @@ stage('Build Docker Image') {
                            --project=cloudside-academy \
                             --zone=us-central1-a \
                             --delivery-pipeline= my-gke-demo-app-1\
-                            --images= us-central1-docker.pkg.dev/cloudside-project/ambika-repo/helloworld'
+                            --images= us-central1-docker.pkg.dev/cloudside-academy/ambika-repo/helloworld'
                   
                   }    
             }
