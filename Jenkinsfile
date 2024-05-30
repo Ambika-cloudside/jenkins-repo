@@ -1,4 +1,4 @@
-pipeline {
+lopipeline {
   agent any
    environment {
         PROJECT_ID = 'cloudside-academy'
@@ -50,7 +50,7 @@ stage('Build Docker Image') {
                            --project=cloudside-academy \
                             --region=us-central1 \
                             --delivery-pipeline=my-gke-demo-app-1\
-                            --images=us-central1-docker.pkg.dev/cloudside-academy/ambika-repo/helloworld'
+                            --images=helloworld=us-central1-docker.pkg.dev/cloudside-academy/ambika-repo/helloworld'
                   
                   }    
             }
