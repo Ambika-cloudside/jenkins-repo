@@ -44,7 +44,7 @@ stage('Build Docker Image') {
                 script {
                   withCredentials([file(credentialsId: "7f52fea0-2838-4c6b-b316-361d25c8dbbb", variable: 'GCR_CRED')]){
                     sh 'gcloud auth activate-service-account --key-file=${GCR_CRED}'
-                      sh 'gcloud config set project ${PROJECT_ID}'
+                      sh 'gcloud config set project cloudside-academy'
                    sh 'gcloud deploy apply --file=clouddeploy.yaml --zone=us-central1-a --project=cloudside-academy --skaffold-file=skaffold.yaml'
                     sh 'gcloud deploy releases create gke-nodeapp-release-$SHORT_SHA \
                            --project=cloudside-academy \
