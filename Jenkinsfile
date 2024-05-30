@@ -28,7 +28,7 @@ stage('Build Docker Image') {
     stage('Push Docker Image to Artifact Registry') {
             steps {
                 script {
-                    withCredentials([file(credentialsId: "f1f2aef4-3297-4de3-a439-83def74f0a40", variable: 'GCR_CRED')]){
+                    withCredentials([file(credentialsId: "14651149-e2dc-4dab-9330-4b7835acc718", variable: 'GCR_CRED')]){
                              sh 'gcloud auth activate-service-account --key-file=${GCR_CRED}'
                               sh 'gcloud auth configure-docker us-central1-docker.pkg.dev/cloudside-academy/ambika-repo--quiet'
                               sh "docker tag ${APP_NAME}:${IMAGE_TAG} ${IMAGE_NAME}"
@@ -42,7 +42,7 @@ stage('Build Docker Image') {
       stage('Gke deploy') {
             steps {
                 script {
-                  withCredentials([file(credentialsId: "f1f2aef4-3297-4de3-a439-83def74f0a40", variable: 'GCR_CRED')]){
+                  withCredentials([file(credentialsId: "14651149-e2dc-4dab-9330-4b7835acc718", variable: 'GCR_CRED')]){
                     sh 'gcloud auth activate-service-account --key-file=${GCR_CRED}'
                       sh 'gcloud config set project cloudside-academy'
                    sh 'gcloud deploy apply --file=clouddeploy.yaml --region=us-central1 --project=cloudside-academy '
