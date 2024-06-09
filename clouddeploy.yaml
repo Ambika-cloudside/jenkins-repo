@@ -2,11 +2,11 @@ apiVersion: deploy.cloud.google.com/v1
 kind: DeliveryPipeline
 metadata:
   name: my-gke-demo-app-1
-spec:
-  serialPipeline:
-    stages:
-      - targetId: dev
-        profiles: []
+description: main application pipeline
+serialPipeline:
+  stages:
+    - targetId: dev
+      profiles: []
 
 ---
 
@@ -14,8 +14,8 @@ apiVersion: deploy.cloud.google.com/v1
 kind: Target
 metadata:
   name: dev
-spec:
-  gke:
-    cluster: projects/cloudside-academy/locations/us-central1/clusters/cluster-ad
-    location: us-central1
-    workerPool: projects/cloudside-academy/locations/us-central1/workerPools/worker-pool-ad
+description: development cluster
+gke:
+  cluster: projects/cloudside-academy/locations/us-central1/clusters/cluster-ad
+  location: us-central1
+  workerPool: projects/cloudside-academy/locations/us-central1/workerPools/worker-pool-ad
