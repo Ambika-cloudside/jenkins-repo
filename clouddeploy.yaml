@@ -24,7 +24,4 @@ executionConfigs:
   privatePool:
     workerPool: "projects/cloudside-academy/locations/us-central1/workerPools/worker-pool-ad"
 - usages:
-  - RENDER
-  - PREDEPLOY
-  - VERIFY
-  - POSTDEPLOY
+  - [RENDER | PREDEPLOY | DEPLOY | VERIFY | POSTDEPLOY]
