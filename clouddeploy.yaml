@@ -5,8 +5,8 @@ metadata:
 description: main application pipeline
 serialPipeline:
   stages:
-    - targetId: dev
-      profiles: []
+  - targetId: dev
+    profiles: []
 
 ---
 
@@ -16,6 +16,4 @@ metadata:
   name: dev
 description: development cluster
 gke:
-  cluster: projects/cloudside-academy/locations/us-central1/clusters/cluster-ad
-  location: us-central1
-  workerPool: projects/cloudside-academy/locations/us-central1/workerPools/worker-pool-ad
+  cluster: projects/cloudside-academy/locations/us-central1-a/clusters/cluster-ad
