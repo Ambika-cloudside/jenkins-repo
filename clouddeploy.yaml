@@ -17,11 +17,7 @@ metadata:
 description: development cluster
 gke:
   cluster: projects/cloudside-academy/locations/us-central1-a/clusters/cluster-ad
-
 executionConfigs:
-- usages:
-  - DEPLOY
-  privatePool:
-    workerPool: "projects/cloudside-academy/locations/us-central1/workerPools/worker-pool-ad"
-- usages:
-  - [RENDER | PREDEPLOY | DEPLOY | VERIFY | POSTDEPLOY]
+  - usages: [RENDER, PREDEPLOY, DEPLOY, VERIFY, POSTDEPLOY]
+    privatePool:
+      workerPool: "projects/cloudside-academy/locations/us-central1/workerPools/worker-pool-ad"
