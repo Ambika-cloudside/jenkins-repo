@@ -16,7 +16,7 @@ metadata:
   name: dev
 description: development cluster
 gke:
-  cluster: projects/cloudside-academy/locations/us-central1-a/clusters/cluster-ad
+  cluster: projects/cloudside-academy/locations/us-central1/clusters/cluster-ad
 executionConfigs:
   - usages: [RENDER, PREDEPLOY, DEPLOY, VERIFY, POSTDEPLOY]
     privatePool:
