@@ -17,16 +17,8 @@ metadata:
 description: development cluster
 gke:
   cluster: projects/cloudside-academy/locations/us-central1/clusters/cluster-ad
-  internalIp: "10.121.0.0/28"
 executionConfigs:
-- usages:
-  - DEPLOY
-  privatePool:
+- privatePool:
     workerPool: "projects/cloudside-academy/locations/us-central1/workerPools/worker-pool-ad"
-- usages:
-  - RENDER
-  - PREDEPLOY
-  - VERIFY
-  - POSTDEPLOY
-
-      
+  usages:
+  - DEPLOY
