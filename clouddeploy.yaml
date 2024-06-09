@@ -22,7 +22,7 @@ executionConfigs:
   - DEPLOY
   privatePool:
     workerPool: "projects/cloudside-academy/locations/us-central1/workerPools/worker-pool-ad"
-    serviceAccount: "gke-adutt@cloudside-academy.iam.gserviceaccount.com"	
+    serviceAccount: "gke-adutt@cloudside-academy.iam.gserviceaccount.com"
 - usages:
   - RENDER
   - PREDEPLOY
