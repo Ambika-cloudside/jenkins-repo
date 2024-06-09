@@ -18,5 +18,4 @@ description: development cluster
 gke:
   cluster: projects/cloudside-academy/locations/us-central1-a/clusters/cluster-ad
 
-options:
- workerPool: 'projects/cloudside-academy/locations/us-central1/workerPools/worker-pool-ad' 
+
