@@ -3,11 +3,10 @@ kind: DeliveryPipeline
 metadata:
   name: my-gke-demo-app-1
 description: main application pipeline
-spec:
-  serialPipeline:
-    stages:
-    - targetId: dev
-      profiles: []
+serialPipeline:
+  stages:
+  - targetId: dev
+    profiles: []
 
 ---
 
